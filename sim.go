@@ -57,8 +57,8 @@ func main() {
 	// Computing results
 	var avgLuck float32 = 0.0
 	for _, topApplicant := range applicants[:(*spaces)] {
-		avgLuck = avgLuck + float32(topApplicant.luck)
+		avgLuck += float32(topApplicant.luck)
 	}
-	avgLuck = avgLuck / float32(*spaces)
+	avgLuck /= float32(*spaces)
 	fmt.Printf("Average luck score of the top %d applicants: %f\n", *spaces, avgLuck)
 }

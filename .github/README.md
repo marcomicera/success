@@ -11,7 +11,7 @@
 ## Run the simulation
 
 ```shell script
-$ go run sim.go [FLAGS]
+go run sim.go [FLAGS]
 ```
 
 ### Flags
