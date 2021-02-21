@@ -8,6 +8,9 @@
     </a>
 </p>
 
+Simulation inspired by [_Is Success Luck or Hard Work?_](https://youtu.be/3LopI4YeC4I?t=218),
+by [Veritasium](https://www.youtube.com/c/veritasium).
+
 > The importance of luck increases the greater the number of applicants applying for just a few spaces.
 >
 > Consider the most recent class of NASA astronauts.\
