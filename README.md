@@ -11,6 +11,9 @@
 Simulation inspired by [_Is Success Luck or Hard Work?_](https://youtu.be/3LopI4YeC4I?t=218),
 by [Veritasium](https://www.youtube.com/c/veritasium).
 
+<details>
+<summary>Simulation description</summary>
+
 > The importance of luck increases the greater the number of applicants applying for just a few spaces.
 >
 > Consider the most recent class of NASA astronauts.\
@@ -33,7 +36,8 @@ by [Veritasium](https://www.youtube.com/c/veritasium).
 > The answer was, on average, only 1.6.\
 > That means, even with luck accounting for just 5% of the outcome, 9 or maybe 10 of the 11 applicants selected
 > would have been different if luck played no role at all.
->
+</details>
+
 > When competition is fierce, being talented and hard-working is important, but it's not enough to guarantee success.
 >
 > You also need to catch a break.
