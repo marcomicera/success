@@ -3,7 +3,7 @@
 > In a competitive world, tiny advantages can make all the difference.
 
 <p align="center">
-    <a href="https://www.youtube.com/watch?v=3LopI4YeC4I" alt="Veritasium's video link">
+    <a href="https://youtu.be/3LopI4YeC4I?t=218" alt="Veritasium's video link">
             <img src="https://img.youtube.com/vi/3LopI4YeC4I/0.jpg" />
     </a>
 </p>
