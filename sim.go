@@ -77,6 +77,9 @@ func main() {
 		log.Fatalf("Invalid spaces number: %d. Terminating...", *spaces)
 	}
 
+	// Final result: luck average across simulations
+	avgLuckAcrossSimulations := float32(0)
+
 	// Parallel simulations setup
 	c := make(chan int64)
 	var wg sync.WaitGroup
@@ -93,7 +96,8 @@ func main() {
 
 				// Starting a selection process
 				avgLuck := selectionProcess(currentSeed, *applicantsNum, *spaces)
-				fmt.Printf("Average luck score of the top %d applicants: %f\n", spaces, avgLuck)
+				//fmt.Printf("Average luck score of the top %d applicants: %f\n", spaces, avgLuck) // one sim. result
+				avgLuckAcrossSimulations += avgLuck
 			}
 		}(c)
 	}
@@ -104,4 +108,7 @@ func main() {
 	}
 	close(c)
 	wg.Wait()
+	avgLuckAcrossSimulations /= float32(*numSimulations)
+	fmt.Printf("The top %d applicants (out of %d) were %.2f%% lucky on average across %d simulations.\n",
+		*spaces, *applicantsNum, avgLuckAcrossSimulations, *numSimulations)
 }
