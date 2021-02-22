@@ -25,13 +25,11 @@ by [Veritasium](https://www.youtube.com/c/veritasium).
 >
 > So, it's a useful delusion to believe you are in full control of your destiny.
 
-## Simulation description
+## The simulation
 
 <details>
-<summary>Click to expand</summary>
+<summary>Description</summary>
 
-> The importance of luck increases the greater the number of applicants applying for just a few spaces.
->
 > Consider the most recent class of NASA astronauts.\
 > From over 18,300 applicants in 2017,
 > only 11 were selected and went on to graduate from the astronaut training program.
@@ -54,7 +52,11 @@ by [Veritasium](https://www.youtube.com/c/veritasium).
 > would have been different if luck played no role at all.
 </details>
 
-## Run the simulation
+<p align="center">
+    <img src="terminal_screenshot.png" alt="Terminal output" />
+</p>
+
+### Run it
 
 ```shell script
 go run sim.go
