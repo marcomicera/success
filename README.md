@@ -68,7 +68,7 @@ Usage:
   -applicants int
         Number of applicants (default 10000)
   -seed int
-        Simulation seed (default 20)
+        Simulation seed (default 0)
   -spaces int
         Number of applicants that will be selected (default 11)
 ```
