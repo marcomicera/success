@@ -32,7 +32,12 @@ func main() {
 	spaces := flag.Int("spaces", 11, "Number of applicants that will be selected")
 	flag.Parse()
 
-	// There cannot be more spaces than applicants
+	// Applicants number check
+	if *applicantsNum <= 1 {
+		log.Fatalf("Invalid number of applicants: %d. Terminating...", *spaces)
+	}
+
+	// Number of spaces check
 	if *spaces >= *applicantsNum {
 		log.Fatalf("%d spaces for %d applicants. Terminating...", *spaces, *applicantsNum)
 	}
