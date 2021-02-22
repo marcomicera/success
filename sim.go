@@ -16,10 +16,10 @@ type Applicant struct {
 }
 
 // Applicant constructor
-func NewApplicant() Applicant {
+func NewApplicant(r *rand.Rand) Applicant {
 	applicant := Applicant{
-		skills: rand.Intn(100),
-		luck:   rand.Intn(100),
+		skills: r.Intn(100),
+		luck:   r.Intn(100),
 	}
 	applicant.total = float32(applicant.skills)*0.95 + float32(applicant.luck)*0.05
 	return applicant
@@ -27,13 +27,14 @@ func NewApplicant() Applicant {
 
 // Simulates one selection process
 func selectionProcess(seed int64, applicantsNum int, spaces int) float32 {
-	rand.Seed(seed)
+
+	r := rand.New(rand.NewSource(seed))
 
 	var applicants []Applicant
 
 	// Score generation
 	for i := 0; i < applicantsNum; i++ {
-		applicants = append(applicants, NewApplicant())
+		applicants = append(applicants, NewApplicant(r))
 	}
 
 	// Selection process
