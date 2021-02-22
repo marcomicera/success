@@ -59,7 +59,7 @@ func main() {
 
 	// Applicants number check
 	if *applicantsNum <= 1 {
-		log.Fatalf("Invalid number of applicants: %d. Terminating...", *spaces)
+		log.Fatalf("Invalid number of applicants: %d. Terminating...", *applicantsNum)
 	}
 
 	// Number of spaces check
