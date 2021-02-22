@@ -11,8 +11,24 @@
 Simulation inspired by [_Is Success Luck or Hard Work?_](https://youtu.be/3LopI4YeC4I?t=218),
 by [Veritasium](https://www.youtube.com/c/veritasium).
 
+> When competition is fierce, being talented and hard-working is important, but it's not enough to guarantee success.
+>
+> You also need to catch a break.
+>
+> Largely, I think we're unaware of our good luck because, by definition, it's not something we did.\
+> Like the housework done by your significant other, it goes unappreciated.
+>
+> And here's the crazy thing:
+> downplaying the importance of chance events may actually improve your probability of success because
+> if you perceive an outcome to be uncertain, you're less likely to invest effort in it,
+> which further decreases your chances of success.
+>
+> So, it's a useful delusion to believe you are in full control of your destiny.
+
+## Simulation description
+
 <details>
-<summary>Simulation description</summary>
+<summary>Click to expand</summary>
 
 > The importance of luck increases the greater the number of applicants applying for just a few spaces.
 >
@@ -38,27 +54,13 @@ by [Veritasium](https://www.youtube.com/c/veritasium).
 > would have been different if luck played no role at all.
 </details>
 
-> When competition is fierce, being talented and hard-working is important, but it's not enough to guarantee success.
->
-> You also need to catch a break.
->
-> Largely, I think we're unaware of our good luck because, by definition, it's not something we did.\
-> Like the housework done by your significant other, it goes unappreciated.
->
-> And here's the crazy thing:
-> downplaying the importance of chance events may actually improve your probability of success because
-> if you perceive an outcome to be uncertain, you're less likely to invest effort in it,
-> which further decreases your chances of success.
->
-> So, it's a useful delusion to believe you are in full control of your destiny.
-
 ## Run the simulation
 
 ```shell script
 go run sim.go
 ```
 
-### Flags
+### Parameters
 
 ```
 $ go run sim.go --help                                                                                                                                                                                                   10.38.55 PM, 21.02.2021
