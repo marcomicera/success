@@ -28,7 +28,7 @@ func main() {
 
 	// Params
 	seed := flag.Int64("seed", 0, "Simulation seed")
-	applicantsNum := flag.Int("applicants", 10000, "Number of applicants")
+	applicantsNum := flag.Int("applicants", 18300, "Number of applicants")
 	spaces := flag.Int("spaces", 11, "Number of applicants that will be selected")
 	flag.Parse()
 

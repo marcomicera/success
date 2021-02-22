@@ -66,7 +66,7 @@ go run sim.go
 $ go run sim.go --help                                                                                                                                                                                                   10.38.55 PM, 21.02.2021
 Usage:
   -applicants int
-        Number of applicants (default 10000)
+        Number of applicants (default 18300)
   -seed int
         Simulation seed (default 0)
   -spaces int
