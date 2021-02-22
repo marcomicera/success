@@ -6,6 +6,7 @@ import (
 	"log"
 	"math/rand"
 	"sort"
+	"sync"
 )
 
 type Applicant struct {
@@ -55,7 +56,13 @@ func main() {
 	seed := flag.Int64("seed", 0, "Simulation seed")
 	applicantsNum := flag.Int("applicants", 18300, "Number of applicants")
 	spaces := flag.Int("spaces", 11, "Number of applicants that will be selected")
+	numSimulations := flag.Int("simulations", 1000, "Number of simulations to run")
 	flag.Parse()
+
+	// Number of simulations check
+	if *numSimulations < 1 {
+		log.Fatalf("Invalid number of simulations to be run: %d. Terminating...", *spaces)
+	}
 
 	// Applicants number check
 	if *applicantsNum <= 1 {
@@ -70,7 +77,31 @@ func main() {
 		log.Fatalf("Invalid spaces number: %d. Terminating...", *spaces)
 	}
 
-	// Launching the simulation
-	avgLuck := selectionProcess(*seed, *applicantsNum, *spaces)
-	fmt.Printf("Average luck score of the top %d applicants: %f\n", *spaces, avgLuck)
+	// Parallel simulations setup
+	c := make(chan int64)
+	var wg sync.WaitGroup
+	wg.Add(*numSimulations)
+	for ii := 0; ii < *numSimulations; ii++ {
+		go func(c chan int64) {
+			for {
+				// Retrieving current seed
+				currentSeed, more := <-c
+				if more == false {
+					wg.Done()
+					return
+				}
+
+				// Starting a selection process
+				avgLuck := selectionProcess(currentSeed, *applicantsNum, *spaces)
+				fmt.Printf("Average luck score of the top %d applicants: %f\n", spaces, avgLuck)
+			}
+		}(c)
+	}
+
+	// Launching simulations
+	for simSeed := *seed; simSeed < *seed+int64(*numSimulations); simSeed++ {
+		c <- simSeed
+	}
+	close(c)
+	wg.Wait()
 }
