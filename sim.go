@@ -24,6 +24,31 @@ func NewApplicant() Applicant {
 	return applicant
 }
 
+// Simulates one selection process
+func selectionProcess(seed int64, applicantsNum int, spaces int) float32 {
+	rand.Seed(seed)
+
+	var applicants []Applicant
+
+	// Score generation
+	for i := 0; i < applicantsNum; i++ {
+		applicants = append(applicants, NewApplicant())
+	}
+
+	// Selection process
+	sort.Slice(applicants, func(i, j int) bool {
+		return applicants[i].total > applicants[j].total
+	})
+
+	// Computing result
+	var avgLuck float32 = 0.0
+	for _, topApplicant := range applicants[:spaces] {
+		avgLuck += float32(topApplicant.luck)
+	}
+	avgLuck /= float32(spaces)
+	return avgLuck
+}
+
 func main() {
 
 	// Params
@@ -45,25 +70,7 @@ func main() {
 		log.Fatalf("Invalid spaces number: %d. Terminating...", *spaces)
 	}
 
-	rand.Seed(*seed)
-
-	var applicants []Applicant
-
-	// Score generation
-	for i := 0; i < *applicantsNum; i++ {
-		applicants = append(applicants, NewApplicant())
-	}
-
-	// Selection process
-	sort.Slice(applicants, func(i, j int) bool {
-		return applicants[i].total > applicants[j].total
-	})
-
-	// Computing results
-	var avgLuck float32 = 0.0
-	for _, topApplicant := range applicants[:(*spaces)] {
-		avgLuck += float32(topApplicant.luck)
-	}
-	avgLuck /= float32(*spaces)
+	// Launching the simulation
+	avgLuck := selectionProcess(*seed, *applicantsNum, *spaces)
 	fmt.Printf("Average luck score of the top %d applicants: %f\n", *spaces, avgLuck)
 }
